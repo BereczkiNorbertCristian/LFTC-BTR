@@ -3,20 +3,22 @@ from model.Terminal import Terminal
 
 
 class Container(object):
+
     def __init__(self):
         self.dict = {}
         self.lst = []
+        self.FIRST_CHARACTER = 0
 
     def addTuple(self, left, right):
         if left.islower():
             raise Exception("Left side should not be small letter: " + left)
         rightLst = []
-        for i in range(0, len(right)):
+        for el in right:
             toAppend = None
-            if right[i].islower():
-                toAppend = Terminal(right[i])
+            if el[self.FIRST_CHARACTER] == "'":
+                toAppend = Terminal(el.strip("'"))
             else:
-                toAppend = NonTerminal(right[i])
+                toAppend = NonTerminal(el)
             rightLst.append(toAppend)
         if not left in self.dict.keys():
             self.dict[left] = []
@@ -51,7 +53,12 @@ class Container(object):
     def printList(lst):
         ret = "\nList:["
         for el in lst:
-            ret += el.c + ","
+            tp = "None:"
+            if el.isTerminal() :
+                tp = "T:"
+            else:
+                tp = "NT:"
+            ret += tp + el.c + ","
         ret += "]\n"
         return ret
 

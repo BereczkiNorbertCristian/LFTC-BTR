@@ -1,5 +1,5 @@
-S->aAd
-S->bAB
-A->cA
+S->a A 'd'
+S->b A B
+A->c A
 A->c
 B->d
