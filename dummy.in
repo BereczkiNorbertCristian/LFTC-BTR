@@ -1,3 +1,5 @@
-S->aSAb
-S->E
+S->aAd
+S->bAB
 A->cA
+A->c
+B->d
