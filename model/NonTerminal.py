@@ -10,3 +10,9 @@ class NonTerminal(object):
 
     def isNonTerminal(self):
         return True
+
+    def __hash__(self) -> int:
+        return hash(self.c)
+
+    def __eq__(self, other):
+        return self.c == other.c

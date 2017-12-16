@@ -1,5 +1,5 @@
 from model.Terminal import Terminal
-from util.Expression import Expression
+from util.Util import Util
 
 
 class FirstFollow:
@@ -37,17 +37,17 @@ class FirstFollow:
             self.follow[self.initial] = [Terminal("$")]
         for leftPart in self.container.getDict().keys():
             for expression in self.container.getDict()[leftPart]:
-                if Expression.containsNonTerminal(nonTerminal, expression):
-                    if Expression.indexOf(nonTerminal, expression) == len(expression) - 1:
+                if Util.containsNonTerminal(nonTerminal, expression):
+                    if Util.indexOfNonTerminal(nonTerminal, expression) == len(expression) - 1:
                         if leftPart != nonTerminal:
                             if leftPart in self.__remainingNonTerminals:
                                 self.findFollowByNonTerminal(leftPart)
                             self.follow[nonTerminal] += self.follow[leftPart]
                     else:
-                        if expression[Expression.indexOf(nonTerminal, expression) + 1].isTerminal():
-                            self.follow[nonTerminal].append(expression[Expression.indexOf(nonTerminal, expression) + 1])
+                        if expression[Util.indexOfNonTerminal(nonTerminal, expression) + 1].isTerminal():
+                            self.follow[nonTerminal].append(expression[Util.indexOfNonTerminal(nonTerminal, expression) + 1])
                         else:
-                            self.follow[nonTerminal] += self.first[expression[Expression.indexOf(nonTerminal, expression) + 1].c]
+                            self.follow[nonTerminal] += self.first[expression[Util.indexOfNonTerminal(nonTerminal, expression) + 1].c]
         self.follow[nonTerminal] = list(set(self.follow[nonTerminal]))
         self.__remainingNonTerminals.remove(nonTerminal)
 
