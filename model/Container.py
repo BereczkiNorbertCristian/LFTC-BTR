@@ -63,6 +63,8 @@ class Container(object):
             if self.getList()[x][0] == leftPart and self.getList()[x][1] == rightPart:
                 return x
 
+    def getRuleById(self, identifier):
+        return self.getList()[identifier]
 
     @staticmethod
     def printList(lst):

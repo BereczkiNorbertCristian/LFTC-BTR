@@ -11,3 +11,8 @@ print(firstFollow)
 canonicalItems = CanonicalItems(container, firstFollow)
 print(canonicalItems)
 checkingService = CheckingService(canonicalItems, container)
+print()
+if checkingService.checkSequence(["a", "c", "a"]):
+    print("Accepted")
+else:
+    print("Not accepted")

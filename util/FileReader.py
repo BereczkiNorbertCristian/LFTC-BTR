@@ -8,6 +8,6 @@ def get_file_content(filename):
         for line in f:
             left, right = line.split("->");
             right = right.rstrip("\n")
-            lstOfStrings = right.split(" ")
+            lstOfStrings = right.strip().split(" ")
             container.addTuple(left, lstOfStrings)
     return container
