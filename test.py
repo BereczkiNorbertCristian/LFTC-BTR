@@ -1,4 +1,5 @@
 from service.CanonicalItems import CanonicalItems
+from service.CheckingService import CheckingService
 from service.FirstFollow import FirstFollow
 from util.FileReader import get_file_content
 
@@ -9,3 +10,4 @@ firstFollow = FirstFollow(container, "S")
 print(firstFollow)
 canonicalItems = CanonicalItems(container, firstFollow)
 print(canonicalItems)
+checkingService = CheckingService(canonicalItems, container)

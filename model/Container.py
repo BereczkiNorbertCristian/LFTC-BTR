@@ -49,6 +49,21 @@ class Container(object):
     def getNonTerminals(self):
         return list(set(self.getDict().keys()))
 
+    def getAllElements(self):
+        elements = []
+        for x in self.getDict().keys():
+            for exp in self.getDict()[x]:
+                for el in exp:
+                    if not el in elements:
+                        elements.append(el)
+        return elements
+
+    def findRuleIdBy(self, leftPart, rightPart):
+        for x in range(len(self.getList())):
+            if self.getList()[x][0] == leftPart and self.getList()[x][1] == rightPart:
+                return x
+
+
     @staticmethod
     def printList(lst):
         ret = "\nList:["

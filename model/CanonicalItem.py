@@ -35,6 +35,13 @@ class CanonicalItem:
     def addNext(self, start, through, end):
         self.next.append(Transition(start, through, end))
 
+    def getAllFinalExpressions(self):
+        finalExpList = []
+        for exp in self.expressions:
+            if exp.dotPosition == len(exp.rightPart):
+                finalExpList.append(exp)
+        return finalExpList
+
     def __str__(self):
         res = ""
         res += "I" + str(self.id) + "\n"

@@ -56,6 +56,7 @@ class CanonicalItems:
                     groupedExpressions[crtElement.c].append(e)
         return groupedExpressions
 
+
     def __str__(self):
         res = ""
         for i in self.items:
