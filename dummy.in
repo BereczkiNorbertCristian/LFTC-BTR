@@ -1,3 +1,50 @@
-var_decl-> '4' list_iden '3'
-list_iden-> '0' '7' list_iden
-list_iden-> '0'
+input-> var_declarations statements
+var_declarations-> var_decl_statement 
+var_declarations-> var_decl_statement var_declarations 
+var_decl_statement-> TYPE_TOKEN list_identifier '3' 
+list_identifier-> IDENTIFIER_TOKEN '7' list_identifier 
+list_identifier-> IDENTIFIER_TOKEN 
+statements-> statement 
+statements-> statement statements 
+statement-> assign_statement 
+statement-> conditional_statement 
+statement-> dorepeat_statement 
+statement-> read_statement 
+statement-> write_statement
+dorepeat_statement-> DOREPEAT_TOKEN '13' bool_exp '14' '24' statements DONE_TOKEN '3'
+assign_statement-> IDENTIFIER_TOKEN ASSIGN_TOKEN value '3'
+value-> IDENTIFIER_TOKEN 
+value-> arith_exp
+value-> CONSTANT_TOKEN
+arith_exp-> value PLUS value  
+arith_exp-> value MINUS value
+arith_exp-> value MULT value
+arith_exp-> value DIV value
+bool_exp-> value BOOL_OP value
+read_statement-> READ_TOKEN '9' IDENTIFIER_TOKEN '9' '3'
+write_statement-> WRITE_TOKEN '13' value '14' '3'
+write_statement-> WRITE_TOKEN '13' bool_exp '14' '3'
+conditional_statement-> IF_TOKEN '13' bool_exp '14' '24' statements DONE_TOKEN '3' 
+conditional_statement-> IF_TOKEN bool_exp '24' statements DONE_TOKEN '3' ELSE_TOKEN '24' statements DONE_TOKEN '3'
+IDENTIFIER_TOKEN-> '0'
+CONSTANT_TOKEN-> '1'
+ASSIGN_TOKEN-> '2'
+TYPE_TOKEN-> '4'
+TYPE_TOKEN-> '5'
+TYPE_TOKEN-> '6'
+PLUS-> '8'
+MINUS-> '9'
+MULT-> '10'
+DIV-> '11'
+IF_TOKEN-> '12'
+BOOL_OP-> '15'
+BOOL_OP-> '16'
+BOOL_OP-> '17'
+BOOL_OP-> '18'
+BOOL_OP-> '19'
+BOOL_OP-> '20'
+DOREPEAT_TOKEN-> '22'
+DONE_TOKEN-> '23'
+READ_TOKEN-> '25'
+WRITE_TOKEN-> '26'
+ELSE_TOKEN-> '27'

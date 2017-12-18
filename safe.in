@@ -1,0 +1,9 @@
+prg-> var_decl statements
+var_decl-> '4' list_iden '3'
+list_iden-> identif '7' list_iden
+list_iden-> identif
+identif-> '0'
+statements-> statement statements
+statements-> statement
+statement-> indentif 
+op->

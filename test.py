@@ -14,10 +14,10 @@ def read_pif(filename):
 container = get_file_content("dummy.in")
 # print(container)
 # print(container.getDict())
-firstFollow = FirstFollow(container, "var_decl")
-print(firstFollow)
+firstFollow = FirstFollow(container, "input")
+# print(firstFollow)
 canonicalItems = CanonicalItems(container, firstFollow)
-print(canonicalItems)
+# print(canonicalItems)
 checkingService = CheckingService(canonicalItems, container)
 
 pifList = read_pif("program.in")
