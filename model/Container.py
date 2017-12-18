@@ -10,8 +10,6 @@ class Container(object):
         self.FIRST_CHARACTER = 0
 
     def addTuple(self, left, right):
-        if left.islower():
-            raise Exception("Left side should not be small letter: " + left)
         rightLst = []
         for el in right:
             toAppend = None
